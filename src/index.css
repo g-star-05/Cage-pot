@@ -1,0 +1,38 @@
+:root {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #e5e7eb;
+  background-color: #020617;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 🔴 IMPORTANT: no max-width, no centering on root */
+#root {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* body should not center content */
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #e5e7eb; /* page bg behind hero */
+}
+
+/* optional: remove Vite demo styles */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}

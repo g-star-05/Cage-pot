@@ -1,0 +1,416 @@
+/* ==== Full-width navbar ==== */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  background: #0f172a;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.35);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* Grid: [logo] [search (center)] [right] */
+.nav-container {
+  width: 100%;
+  padding: 0.75rem 2rem;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  column-gap: 1.5rem;
+}
+
+/* LEFT */
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
+/* Logo */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.04em;
+}
+
+.nav-logo span {
+  background: linear-gradient(to right, #38bdf8, #4ade80);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Logo image */
+.nav-logo-img {
+  width: 34px;
+  height: 34px;
+  object-fit: cover;
+  margin-left: 6px;
+  border-radius: 50%;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  background: #fff;
+}
+
+/* ==== Search Bar (center) ==== */
+.nav-search {
+  justify-self: center;
+  width: 100%;
+  max-width: 420px;
+}
+
+.search-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  color: #94a3b8;
+  pointer-events: none;
+  transition: color 0.2s ease;
+}
+
+.search-wrapper input {
+  width: 100%;
+  border-radius: 999px;
+  border: 1px solid rgba(56, 189, 248, 0.7);
+  background: #020617;
+  padding: 0.5rem 1rem 0.5rem 2.2rem; /* space for icon */
+  font-size: 0.9rem;
+  color: #e5e7eb;
+  outline: none;
+  box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.9);
+  transition: border-color 0.18s ease, box-shadow 0.18s ease,
+    background 0.18s ease, transform 0.12s ease;
+}
+
+.search-wrapper input::placeholder {
+  color: #64748b;
+}
+
+.search-wrapper input:hover {
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.25);
+  border-color: rgba(56, 189, 248, 0.8);
+}
+
+.search-wrapper input:focus {
+  border-color: rgba(56, 189, 248, 1);
+  box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.9),
+    0 10px 22px rgba(15, 23, 42, 0.9);
+  transform: translateY(-1px);
+}
+
+/* change icon color when input focused */
+.search-wrapper:focus-within .search-icon {
+  color: #38bdf8;
+}
+
+/* RIGHT section */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Desktop links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.3rem;
+  font-size: 0.95rem;
+}
+
+.nav-links a {
+  color: #e5e7eb;
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 0.1rem;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(to right, #38bdf8, #4ade80);
+  transition: width 0.22s ease-out;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Login button */
+.nav-login {
+  border: none;
+  border-radius: 999px;
+  padding: 0.45rem 1.15rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: linear-gradient(to right, #38bdf8, #4ade80);
+  color: #020617;
+  box-shadow: 0 10px 24px rgba(56, 189, 248, 0.45);
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+}
+
+.nav-login:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 30px rgba(56, 189, 248, 0.7);
+}
+
+/* Hamburger (desktop hidden) */
+.nav-hamburger {
+  display: none;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  background: #020617;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.25rem;
+  cursor: pointer;
+}
+
+.nav-hamburger span {
+  width: 60%;
+  height: 2px;
+  border-radius: 999px;
+  background: #e5e7eb;
+  transition: transform 0.22s ease, opacity 0.18s ease;
+}
+
+.nav-hamburger--active span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.nav-hamburger--active span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-hamburger--active span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Mobile dropdown links (hidden on desktop) */
+.nav-links-mobile {
+  display: none;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .nav-container {
+    padding-inline: 1.2rem;
+  }
+
+  .nav-search {
+    max-width: 360px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-container {
+    padding: 0.6rem 1rem;
+    grid-template-columns: auto auto auto;
+    column-gap: 0.6rem;
+  }
+
+  /* Search full width on second row */
+  .nav-search {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    margin-top: 0.4rem;
+    max-width: none;
+    justify-self: stretch;
+  }
+
+  .search-wrapper input {
+    font-size: 0.85rem;
+    padding: 0.45rem 0.9rem 0.45rem 2.1rem;
+  }
+
+  /* Hide desktop links */
+  .nav-links {
+    display: none;
+  }
+
+  /* Show hamburger */
+  .nav-hamburger {
+    display: flex;
+  }
+
+  .nav-right {
+    gap: 0.5rem;
+  }
+
+  .nav-login {
+    padding: 0.4rem 0.9rem;
+    font-size: 0.8rem;
+  }
+
+  /* Mobile dropdown (only when open) */
+  .nav-links-mobile.open {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    background: #020617;
+    border-top: 1px solid rgba(148, 163, 184, 0.4);
+    padding: 0.8rem 1rem 1rem;
+  }
+
+  .nav-links-mobile a {
+    color: #e5e7eb;
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+
+  .nav-links-mobile a:hover {
+    color: #38bdf8;
+  }
+  .nav-container {
+  padding: 0.6rem 1rem;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  justify-self: end; /* Push right items to end */
+  margin-left: end; /* Force to right side */
+  gap: 0.4rem;
+}
+
+.nav-login {
+  padding: 0.4rem 0.9rem;
+  font-size: 0.8rem;
+}
+
+.nav-hamburger {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: -20px;
+}
+
+.nav-search {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  margin-top: 0.4rem;
+  max-width: none;
+  justify-self: stretch;
+}
+
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Keeps logo left & links right */
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+}
+
+/* === Animation Area === */
+.nav-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Playground container */
+.pet-playground {
+  position: relative;
+  width: 150px;
+  height: 70px;
+}
+
+/* Common styles */
+.pet-playground .dog,
+.pet-playground .cat,
+.pet-playground .ball {
+  position: absolute;
+  font-size: 2rem;
+  user-select: none;
+}
+
+/* Dog animation */
+.pet-playground .dog {
+  left: 0;
+  bottom: 0;
+  animation: dogRun 4s infinite linear;
+}
+
+/* Cat animation */
+.pet-playground .cat {
+  right: 0;
+  bottom: 0;
+  animation: catRun 4s infinite linear;
+  animation-delay: 2s;
+}
+
+/* Ball animation */
+.pet-playground .ball {
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  animation: ballBounce 2s infinite ease-in-out;
+}
+
+/* 🐶 moves back & forth */
+@keyframes dogRun {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(100px) scaleX(1); }
+  51% { transform: translateX(100px) scaleX(-1); }
+  100% { transform: translateX(0) scaleX(-1); }
+}
+
+/* 🐱 runs opposite direction */
+@keyframes catRun {
+  0% { transform: translateX(0) scaleX(1); }
+  50% { transform: translateX(-100px) scaleX(1); }
+  51% { transform: translateX(-100px) scaleX(-1); }
+  100% { transform: translateX(0) scaleX(-1); }
+}
+
+/* ⚽ bounce animation */
+@keyframes ballBounce {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, -10px); }
+}
+
+/* Responsive scaling for mobile */
+@media (max-width: 768px) {
+  .pet-playground {
+    width: 100px;
+    height: 50px;
+  }
+
+  .pet-playground .dog,
+  .pet-playground .cat,
+  .pet-playground .ball {
+    font-size: 1.5rem;
+  }
+}

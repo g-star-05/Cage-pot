@@ -1,0 +1,166 @@
+/* ===== Testimonials Section ===== */
+.cp-testimonials {
+  width: 100%;
+  padding: 3.5rem clamp(1.5rem, 6vw, 4rem);
+  background: #020617;
+  color: #e5e7eb;
+}
+
+.cp-testimonials-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.cp-testimonials-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.cp-testimonials-header h2 {
+  font-size: clamp(1.9rem, 3.4vw, 2.6rem);
+  font-weight: 800;
+  background: linear-gradient(to right, #38bdf8, #4ade80);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.cp-testimonials-header p {
+  margin-top: 0.5rem;
+  color: #9ca3af;
+  font-size: 0.95rem;
+}
+
+/* ===== Scroll Container ===== */
+.cp-testimonials-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+  width: 100%;
+  scrollbar-width: none; /* Firefox */
+}
+
+.cp-testimonials-scroll::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+/* ===== Cards Row ===== */
+.cp-testimonials-grid {
+  display: flex;
+  gap: 1.8rem;
+  width: max-content;
+  animation: scrollTestimonials 30s linear infinite;
+}
+
+/* Smooth scrolling animation (for desktop) */
+@keyframes scrollTestimonials {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Pause on hover */
+.cp-testimonials-scroll:hover .cp-testimonials-grid {
+  animation-play-state: paused;
+}
+
+/* ===== Testimonial Card ===== */
+.cp-testimonial-card {
+  flex: 0 0 300px;
+  padding: 1.4rem 1.3rem;
+  border-radius: 1.2rem;
+  background: radial-gradient(circle at top left, #020617, #0f172a);
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.9);
+  display: flex;
+  gap: 0.9rem;
+}
+
+/* Avatar */
+.cp-testimonial-avatar {
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  background: linear-gradient(to bottom right, #38bdf8, #4ade80);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #020617;
+}
+
+/* Text Content */
+.cp-testimonial-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.cp-testimonial-text {
+  font-size: 0.9rem;
+  color: #e5e7eb;
+  line-height: 1.5;
+}
+
+.cp-testimonial-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.cp-testimonial-pet {
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
+
+.cp-testimonial-stars {
+  font-size: 0.8rem;
+  color: #facc15;
+}
+
+/* ===== Gradient Fades on Edges ===== */
+.cp-testimonials-scroll::before,
+.cp-testimonials-scroll::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 80px;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.cp-testimonials-scroll::before {
+  left: 0;
+  background: linear-gradient(to right, #020617, transparent);
+}
+
+.cp-testimonials-scroll::after {
+  right: 0;
+  background: linear-gradient(to left, #020617, transparent);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 960px) {
+  .cp-testimonials-grid {
+    animation: none; /* disable auto-scroll for better manual swipe */
+  }
+
+  .cp-testimonial-card {
+    flex: 0 0 260px;
+  }
+}
+
+@media (max-width: 640px) {
+  .cp-testimonials {
+    padding-inline: 1.2rem;
+  }
+
+  .cp-testimonial-card {
+    flex: 0 0 230px;
+  }
+}

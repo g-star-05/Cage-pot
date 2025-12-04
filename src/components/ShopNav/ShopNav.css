@@ -1,0 +1,121 @@
+.shopnav {
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  width: 100%;
+  background: #0f172a;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+}
+
+/* Wrapper */
+.shopnav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.8rem 2rem;
+}
+
+/* Grid wrapper for search + cart */
+.shopnav-search-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* Search bar */
+.shopnav-search {
+  position: relative;
+  flex: 1;
+  max-width: 500px;
+}
+
+.shopnav-search input {
+  width: 100%;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  background: #020617;
+  padding: 0.5rem 0.9rem 0.5rem 2.2rem;
+  color: #e5e7eb;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.shopnav-search input::placeholder {
+  color: #94a3b8;
+}
+
+.shopnav-search input:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.6);
+}
+
+.shopnav-search-icon {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  width: 18px;
+  height: 18px;
+  color: #94a3b8;
+  transform: translateY(-50%);
+}
+
+/* Cart */
+.shopnav-cart {
+  position: relative;
+  text-decoration: none;
+  color: #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shopnav-cart-icon {
+  width: 26px;
+  height: 26px;
+  transition: color 0.2s ease;
+}
+
+.shopnav-cart:hover .shopnav-cart-icon {
+  color: #38bdf8;
+}
+
+.shopnav-cart-count {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  background: linear-gradient(to right, #38bdf8, #4ade80);
+  color: #020617;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 2px 6px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .shopnav-container {
+    padding: 0.8rem 1rem;
+  }
+
+  /* Make search + cart share one row */
+  .shopnav-search-wrapper {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0.6rem;
+  }
+
+  .shopnav-search {
+    flex: 1;
+  }
+
+  .shopnav-cart {
+    margin: 0;
+  }
+
+  .shopnav-cart-icon {
+    width: 28px;
+    height: 28px;
+  }
+}
